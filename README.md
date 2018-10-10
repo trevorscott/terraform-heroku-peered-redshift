@@ -2,7 +2,7 @@
 
 This example provisions an AWS VPC via the [mars/heroku_aws_vpc](https://github.com/mars/terraform-aws-vpc) module, a new Private Space, peers them automatically, and deploys a Heroku app and an AWS ECS app that form a two-way (duplex) health check.
 
-In addition, a Redshift instance is provisioned in the AWS VPC which heroku apps can connect to over the private network.
+In addition, a Redshift instance is provisioned in the AWS VPC which heroku apps can connect to without traversing the public internet.
 
 ![Diagram of example duplex health check via private IP addresses across the peering connection](doc/terraform-aws-vpc-peered-v01.png)
 

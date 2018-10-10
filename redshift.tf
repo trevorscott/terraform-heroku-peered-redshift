@@ -38,7 +38,7 @@ resource "aws_redshift_cluster" "tf_redshift_cluster" {
   node_type           = "dc1.large"
   cluster_type        = "single-node"
   publicly_accessible = "false" 
-  cluster_subnet_group_name = "my-redshift-subnet-group"
+  cluster_subnet_group_name = "${aws_redshift_subnet_group.my_redshift_subnet_group.name}"
   vpc_security_group_ids  = ["${aws_security_group.redshift_sg.id}"]
 }
 

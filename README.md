@@ -8,7 +8,8 @@ In addition, a Redshift instance is provisioned in the AWS VPC which heroku apps
 
 ## Requirements
 
-An [AWS IAM](https://console.aws.amazon.com/iam/home) user (`aws_access_key` & `aws_secret_key` in Usage below).
+1. A Heroku Enterprise Account
+1. An [AWS IAM](https://console.aws.amazon.com/iam/home) user (`aws_access_key` & `aws_secret_key` in Usage below).
 
 Name suggestion: `terraform-vpc-peered-health-provisioner`
 

@@ -1,6 +1,8 @@
-# VPC peered with a Private Space
+# AWS VPC with Redshift peered with a Heroku Private Space
 
 This example provisions an AWS VPC via the [mars/heroku_aws_vpc](https://github.com/mars/terraform-aws-vpc) module, a new Private Space, peers them automatically, and deploys a Heroku app and an AWS ECS app that form a two-way (duplex) health check.
+
+In addition, a Redshift instance is provisioned in the AWS VPC which heroku apps can connect to over the private network.
 
 ![Diagram of example duplex health check via private IP addresses across the peering connection](doc/terraform-aws-vpc-peered-v01.png)
 
@@ -16,7 +18,7 @@ With policies:
 * **AmazonVPCFullAccess**
 * **IAMFullAccess**
 * **CloudWatchLogsFullAccess**
-**AmazonRedshiftFullAccess**
+* **AmazonRedshiftFullAccess**
 
 ## Usage
 
@@ -28,6 +30,8 @@ export \
   TF_VAR_aws_access_key=xxxxx \
   TF_VAR_aws_secret_key=xxxxx \
   TF_VAR_instance_public_key='ssh-rsa xxxxx…' 
+
+terraform init
 
 terraform apply \
   -var name=my-deployment-name \

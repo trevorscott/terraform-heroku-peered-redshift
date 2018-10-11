@@ -1,5 +1,12 @@
 # AWS VPC with Redshift peered with a Heroku Private Space
 
+*** WARNING ***
+
+Work in progress. Do not use.
+
+*** WARNING ***
+
+
 Based off of the [mars/terraform-aws-vpc-peered project](https://github.com/mars/terraform-aws-vpc-peered). 
 
 This example provisions an AWS VPC via the [mars/heroku_aws_vpc](https://github.com/mars/terraform-aws-vpc) module, a new Private Space, peers them automatically and provisions a Redshift cluster in the AWS VPC. 

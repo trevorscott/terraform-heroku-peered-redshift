@@ -7,21 +7,26 @@ resource "aws_redshift_subnet_group" "my_redshift_subnet_group" {
   }
 }
 
+# https://devcenter.heroku.com/articles/private-space-peering#setting-up-security-groups
 resource "aws_security_group" "redshift_sg" {
   name   = "redshift-sg"
   vpc_id = "${module.heroku_aws_vpc.id}"
 
-  # Allow ingress rules to be accessed only within current VPC
+  # Allow Heroku Private Space Dynos to connect to redshift cluster
   ingress {
     from_port       = 0
     to_port         = 0
     protocol        = "-1"
-    cidr_blocks     = ["${data.heroku_space_peering_info.default.vpc_cidr}"]
+    cidr_blocks     = ["${data.heroku_space_peering_info.default.dyno_cidr_blocks.0}",
+                      "${data.heroku_space_peering_info.default.dyno_cidr_blocks.1}",
+                      "${data.heroku_space_peering_info.default.dyno_cidr_blocks.2}",
+                      "${data.heroku_space_peering_info.default.dyno_cidr_blocks.3}"]
   }
 }
 
 # adding route as specified from docs:
 # https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-routing.html
+# https://devcenter.heroku.com/articles/private-space-peering#option-1-add-one-route-for-entire-private-space-cidr-block-recommended
 resource "aws_route" "private_vpc_route" {
   route_table_id            = "${module.heroku_aws_vpc.private_route_table_id}"
   destination_cidr_block    = "${data.heroku_space_peering_info.default.vpc_cidr}"
@@ -43,7 +48,5 @@ resource "aws_redshift_cluster" "tf_redshift_cluster" {
   vpc_security_group_ids  = ["${aws_security_group.redshift_sg.id}"]
 }
 
-// deploy app to space
-// create heroku postgres database, attach to app
-// return redshift dburl as config var
+
 

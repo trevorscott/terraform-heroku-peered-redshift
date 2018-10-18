@@ -1,12 +1,15 @@
 # AWS VPC + Redshift peered with a Heroku Private Space
 
-This example uses Terraform to provision an AWS VPC, a new Private Space peered with that VPC and a Redshift cluster in the AWS VPC. 
+This example uses Terraform to create:
+1. An AWS VPC
+1. A Redshift cluster in that VPC
+1. A Heroku Private Space peered with that VPC
 
-Additionally, an example [Redshift Client](https://github.com/trevorscott/redshift-client) is delpoyed to the private space that checks the health of the peered connection to redshift.
+Additionally, a basic [Redshift Client](https://github.com/trevorscott/redshift-client) is delpoyed to the private space that checks the health of the peered connection to redshift.
 
 ![Diagram of example private space app connecting to a Redshift Cluster in a peered AWS VPC](doc/terraform-heroku-peered-redshift.png)
 
-If you'd like to learn more about terraforming Heroku + AWS check out:
+This example was bootstrapped from these projects:
 1. [mars/terraform-aws-vpc-peered project](https://github.com/mars/terraform-aws-vpc-peered).
 1. [mars/heroku_aws_vpc](https://github.com/mars/terraform-aws-vpc)
 

@@ -9,9 +9,8 @@ Additionally, a basic [Redshift Client](https://github.com/trevorscott/redshift-
 
 ![Diagram of example private space app connecting to a Redshift Cluster in a peered AWS VPC](doc/terraform-heroku-peered-redshift.png)
 
-This example was bootstrapped from these projects:
-1. [mars/terraform-aws-vpc-peered project](https://github.com/mars/terraform-aws-vpc-peered).
-1. [mars/heroku_aws_vpc](https://github.com/mars/terraform-aws-vpc)
+This example was based off of [mars/terraform-aws-vpc-peered project](https://github.com/mars/terraform-aws-vpc-peered) and directly uses
+[mars/heroku_aws_vpc](https://github.com/mars/terraform-aws-vpc).
 
 ## Requirements
 

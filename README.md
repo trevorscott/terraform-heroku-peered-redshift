@@ -22,20 +22,32 @@ With policies:
 * **CloudWatchLogsFullAccess**
 * **AmazonRedshiftFullAccess**
 
-## Usage
+## Required Config
 
 ```bash
 export \
-  TF_VAR_heroku_email=name@example.com \
-  TF_VAR_heroku_enterprise_team=xxxxx \
-  TF_VAR_heroku_api_key=xxxxx \
-  TF_VAR_aws_access_key=xxxxx \
-  TF_VAR_aws_secret_key=xxxxx
+  TF_VAR_heroku_email='your-heroku-email' \
+  TF_VAR_heroku_enterprise_team='your-enterprise-team-name' \
+  TF_VAR_heroku_api_key='run heroku auth:token' \
+  TF_VAR_aws_access_key='IAM user aws access key' \
+  TF_VAR_aws_secret_key='IAM user aws secret key' \
+  TF_VAR_redshift_dbname='name of redshift db' \
+  TF_VAR_redshift_username='redshift username' \
+  TF_VAR_redshift_password='redshift password' 
+```
 
+Its best to keep these handy in a `.env` file, ignored by git.
+
+## Usage
+
+```bash
 terraform init
+```
 
+Choose a deployment name. Keep it short as your resources will be prefixed by the chosen name.
+```
 terraform apply \
-  -var name=your-deployment-name \
+  -var name=<your-deployment-name> \
   -var aws_region=us-west-2
 ```
 

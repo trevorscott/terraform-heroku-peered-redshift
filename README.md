@@ -23,7 +23,7 @@ With policies:
 * **CloudWatchLogsFullAccess**
 * **AmazonRedshiftFullAccess**
 
-## Required Config
+## Config
 
 You will need to set the following enviornment variables locally:
 

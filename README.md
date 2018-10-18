@@ -4,8 +4,9 @@ This example uses Terraform to create:
 1. An AWS VPC
 1. A Redshift cluster in that VPC
 1. A Heroku Private Space peered with that VPC
+1. A `redshift-client` heroku app deployed to the Private Space
 
-Additionally, a basic [Redshift Client](https://github.com/trevorscott/redshift-client) Heroku app is delpoyed to the Private Space. When the app starts, it establishes a connection to Redshift through the Peered VPC Connection and outputs success / failure in the logs.
+The [redshift-client](https://github.com/trevorscott/redshift-client) Heroku app establishes a connection to Redshift when it starts and outputs success / failure in the Heroku logs.
 
 ![Diagram of example private space app connecting to a Redshift Cluster in a peered AWS VPC](doc/terraform-heroku-peered-redshift.png)
 

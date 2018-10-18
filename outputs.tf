@@ -1,3 +1,7 @@
 output "redshift_url" {
-  value = "jdbc:redshift//${aws_redshift_cluster.tf_redshift_cluster.dns_name}:5439"
+  value = "${aws_redshift_cluster.tf_redshift_cluster.dns_name}"
+}
+
+output "heroku_app_name" {
+  value = "${heroku_app.redshift_client.name}"
 }

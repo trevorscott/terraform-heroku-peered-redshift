@@ -39,15 +39,7 @@ variable "health_app_slug_file_path" {
   default     = "health-app/heroku-slug.tgz"
 }
 
-variable "health_app_count" {
-  description = "Heroku dyno quantity"
-  default     = 1
-}
 
-variable "health_app_size" {
-  description = "Heroku dyno size"
-  default     = "Private-S"
-}
 
 # AWS ECS/Docker app: "Health Checker"
 variable "health_checker_app_image" {
@@ -75,3 +67,25 @@ variable "redshift_password" {
   description = "redshift password"
   default = "Supercoolstuffalright3456!"
 }
+
+variable "redshift_dbname" {
+  description = "redshift database name"
+  default = "mydb"
+}
+
+#Redshift Client Heroku App
+variable "redshift_client_app_slug_file_path" {
+  description = "Heroku slug archive to release"
+  default     = "slugs/redshift-client.tgz"
+}
+
+variable "redshift_client_app_count" {
+  description = "Heroku dyno quantity"
+  default     = 1
+}
+
+variable "redshift_client_app_size" {
+  description = "Heroku dyno size"
+  default     = "Private-S"
+}
+

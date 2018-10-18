@@ -37,7 +37,7 @@ resource "aws_route" "private_vpc_route" {
 # Single Node Redshift cluster 
 resource "aws_redshift_cluster" "tf_redshift_cluster" {
   cluster_identifier  = "tf-redshift-cluster"
-  database_name       = "mydb"
+  database_name       = "${var.redshift_dbname}"
   master_username     = "${var.redshift_username}"
   master_password     = "${var.redshift_password}"
   node_type           = "dc1.large"

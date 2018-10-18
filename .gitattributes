@@ -1,0 +1,2 @@
+slugs/* filter=lfs diff=lfs merge=lfs -text
+ filter=lfs diff=lfs merge=lfs -text

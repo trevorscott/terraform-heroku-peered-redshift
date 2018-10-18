@@ -39,8 +39,6 @@ export \
   TF_VAR_redshift_password='master redshift user password' 
 ```
 
-Tip: Its best to keep the above env vars handy in a `.env` file so you can reference them later, if needed.
-
 ## Usage
 
 ```bash

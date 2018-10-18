@@ -13,8 +13,6 @@ variable "aws_region" {
   default = "us-east-1"
 }
 
-variable "instance_public_key" {}
-
 variable "aws_to_heroku_common_region" {
   default = {
     "eu-west-1" = "eu"
@@ -88,4 +86,3 @@ variable "redshift_client_app_size" {
   description = "Heroku dyno size"
   default     = "Private-S"
 }
-

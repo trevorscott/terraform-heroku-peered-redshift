@@ -1,6 +1,6 @@
 
 resource "aws_redshift_subnet_group" "my_redshift_subnet_group" {
-  name       = "my-redshift-subnet-group"
+  name       = "${var.name}-redshift-subnet-group"
   subnet_ids = ["${module.heroku_aws_vpc.private_subnet_id}"]
   tags {
     environment = "Production"
@@ -9,10 +9,10 @@ resource "aws_redshift_subnet_group" "my_redshift_subnet_group" {
 
 # https://devcenter.heroku.com/articles/private-space-peering#setting-up-security-groups
 resource "aws_security_group" "redshift_sg" {
-  name   = "redshift-sg"
+  name   = "${var.name}-redshift-sg"
   vpc_id = "${module.heroku_aws_vpc.id}"
 
-  # Allow Heroku Private Space Dynos to connect to redshift cluster
+  # Allow Heroku Private Space Dynos to connect to redshift cluster via any protocols
   ingress {
     from_port       = 0
     to_port         = 0
@@ -36,7 +36,7 @@ resource "aws_route" "private_vpc_route" {
 
 # Single Node Redshift cluster 
 resource "aws_redshift_cluster" "tf_redshift_cluster" {
-  cluster_identifier  = "tf-redshift-cluster"
+  cluster_identifier  = "${var.name}-tf-redshift-cluster"
   database_name       = "${var.redshift_dbname}"
   master_username     = "${var.redshift_username}"
   master_password     = "${var.redshift_password}"

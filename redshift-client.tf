@@ -4,7 +4,7 @@
 
 # Create a new Heroku app
 resource "heroku_app" "redshift_client" {
-  name   = "redshift-client"
+  name   = "${var.name}-redshift-client"
   space = "${heroku_space.default.name}"
 
   organization = {
@@ -31,7 +31,7 @@ resource "heroku_slug" "redshift_client" {
   file_path                      = "${var.redshift_client_app_slug_file_path}"
 
   process_types = {
-    web = "node-v10.12.0-linux-x64/bin/node index.js"
+    web = "npm start"
   }
 }
 

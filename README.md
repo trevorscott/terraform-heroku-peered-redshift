@@ -26,9 +26,9 @@ You will need to set the following enviornment variables locally:
 
 ```bash
 export \
-  TF_VAR_heroku_email='your-heroku-email' \
+  heroku_email='your-heroku-email' \
+  heroku_api_key='run heroku auth:token' \
   TF_VAR_heroku_enterprise_team='your-enterprise-team-name' \
-  TF_VAR_heroku_api_key='run heroku auth:token' \
   TF_VAR_aws_access_key='IAM user aws access key' \
   TF_VAR_aws_secret_key='IAM user aws secret key' \
   TF_VAR_redshift_dbname='name of redshift db you would like to create' \

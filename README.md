@@ -17,11 +17,7 @@ The [redshift-client](https://github.com/trevorscott/redshift-client) Heroku app
 1. An [AWS IAM](https://console.aws.amazon.com/iam/home) user (`aws_access_key` & `aws_secret_key` in Usage below).
 
 With policies:
-* **AmazonEC2FullAccess**
-* **AmazonECS_FullAccess**
 * **AmazonVPCFullAccess**
-* **IAMFullAccess**
-* **CloudWatchLogsFullAccess**
 * **AmazonRedshiftFullAccess**
 
 ## Config

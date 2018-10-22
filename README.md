@@ -13,8 +13,8 @@ The [redshift-client](https://github.com/trevorscott/redshift-client) Heroku app
 ## Requirements
 
 1. A Heroku Enterprise Account
-1. An [AWS IAM](https://console.aws.amazon.com/iam/home) user (`aws_access_key` & `aws_secret_key` in Usage below).
 1. [Git LFS](https://git-lfs.github.com/) 
+1. An [AWS IAM](https://console.aws.amazon.com/iam/home) user (`aws_access_key` & `aws_secret_key` in Usage below).
 
 With policies:
 * **AmazonEC2FullAccess**

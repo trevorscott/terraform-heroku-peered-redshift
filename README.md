@@ -22,12 +22,31 @@ With policies:
 
 ## Config
 
-You will need to set the following enviornment variables locally:
+You will need to set several enviornment variables to provision both AWS and Heroku resources. 
+
+### Heroku Authorization
+
+Authorization tokens used with Terraform must have *global* scope to perform the various create, read, update, & delete actions on the Heroku API. If you want to isolate Terraform's capabilities from your existing account, then it should be authorized using a separate Heroku account.
+
+First, check your current login to confirm that you're using the account intended for Terraform. If you want to switch identities, logout & then login as intended using the Heroku CLI (https://devcenter.heroku.com/articles/heroku-cli):
+
+heroku whoami
+heroku logout
+heroku login
+
+Second, generate an authorization token (https://devcenter.heroku.com/articles/heroku-cli-commands#heroku-authorizations) using the Heroku CLI (https://devcenter.heroku.com/articles/heroku-cli). The description is a human-readable name to indicate the purpose or identity of each authorization:
+
+heroku authorizations:create --description terraform-my-app
+
+Then, set the returned *Token* value and the account's email address into the local environment variables for Terraform (https://www.terraform.io/docs/configuration/variables.html#environment-variables).
+
+Once you have acquired the required information you can export the required env variables like so:
+
 
 ```bash
 export \
-  heroku_email='your-heroku-email' \
-  heroku_api_key='run heroku auth:token' \
+  HEROKU_EMAIL='your-heroku-email' \
+  HEROKU_API_KEY='run heroku auth:token' \
   TF_VAR_heroku_enterprise_team='your-enterprise-team-name' \
   TF_VAR_aws_access_key='IAM user aws access key' \
   TF_VAR_aws_secret_key='IAM user aws secret key' \

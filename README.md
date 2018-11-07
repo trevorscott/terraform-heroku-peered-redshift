@@ -1,5 +1,7 @@
 # AWS VPC + Redshift peered with a Heroku Private Space
 
+🚧 This project has permanently moved to [Heroku Examples](https://github.com/heroku-examples/terraform-heroku-peered-redshift). 🚧
+
 This example uses Terraform to create:
 1. An [AWS VPC](https://github.com/mars/terraform-aws-vpc)
 1. A [Redshift Cluster](redshift.tf) in that VPC
